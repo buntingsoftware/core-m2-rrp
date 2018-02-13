@@ -36,7 +36,7 @@ class Submodules extends \Magento\Framework\App\Helper\AbstractHelper
         $buntingModules = $this->getRegisteredBuntingSubmodules();
         $buntingModules[$id] = $submodule;
 
-        if (count($buntingModules) > 1) {
+        if (!is_null($this->registry->registry('bunting_submodules'))) {
             $this->registry->unregister('bunting_submodules');
         }
 
