@@ -4,7 +4,7 @@ This module provides most of the functionality needed to use Bunting features wi
 
 By itself, this module won't do anything - you **must** install one (or more) of the following submodules to access the full functionality of the Bunting platform:
 
-* [Bunting personalisation](http://)
+* [Bunting personalisation](https://bitbucket.org/bunting-software/bunting-magento-2-personalisation)
 * More coming _**very**_ soon 
 
 ## Installation
