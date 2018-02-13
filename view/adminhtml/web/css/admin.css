@@ -1,0 +1,357 @@
+/* reset bootstrap */
+
+ul, ol {
+    margin-bottom: 0 !important;
+}
+
+.middle {
+    background: none;
+    padding: 23px 27px 23px 27px;
+}
+
+body {
+    font-size: 12px !important;
+}
+
+legend {
+    display: block !important;
+    height: 0 !important;
+    line-height: 0 !important;
+    margin: 0 !important;
+    overflow: hidden !important;
+    padding: 0 !important;
+    width: 0 !important;
+    visibility: hidden !important;
+}
+
+#global_search {
+    color: #000;
+}
+
+/* normal styles */
+
+h3 {
+    border-bottom: 1px solid #CCCCCC;
+    padding-bottom: 10px;
+    font-size: 22px;
+    margin-top: 0;
+}
+
+#anchor-content {
+    margin-top: -20px;
+    font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    background-color: #F6F6F6;
+    background: radial-gradient(#FFFFFF,#F6F6F6);
+}
+
+#anchor-content .row {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+form {
+    display: block;
+}
+.box-container {
+    position: relative;
+    max-width: 280px;
+    margin: 0 auto;
+    padding: 30px;
+    text-align: center;
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 0px 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.box-container.wide {
+    max-width: 700px;
+}
+
+.box-container .title-logo {
+    width: 80%;
+    margin: 10px 10% 30px 10%;
+}
+
+.box-container .title-logo img {
+    width: 100%;
+}
+
+.box-container .title strong {
+    display: block;
+}
+.box-container #plans {
+    margin-bottom: 15px;
+}
+.login {
+    margin-top: 20px;
+}
+
+.underlined {
+    padding-bottom: 30px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #EAEAEA;
+}
+
+.underlined h4 {
+    margin-top: 0;
+}
+
+@media screen and (min-width: 600px) {
+    html, body {
+        min-height: 100%;
+    }
+    .box-container {
+        background: #fff;
+        margin: 40px auto;
+    }
+    .box-container .title {
+        margin: 0 -40px 20px;
+        padding: 20px 40px;
+    }
+}
+.box-container h2 strong {
+    font-weight: bold;
+    display: block;
+}
+.login h2,
+.register h2,
+.underlined h2 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 16px;
+}
+#loginForm,
+.logged-in {
+    position: relative;
+}
+#registerForm form {
+    background: #eaeaea;
+    padding: 10px;
+    margin-top: 15px;
+}
+#registerForm form fieldset {
+    background: #fff;
+    border: 1px dashed #CCCCCC;
+    margin-bottom: 10px;
+    padding: 26px 26px 11px 26px;
+}
+
+#anchor-content fieldset .row {
+    margin-left: -15px;
+    margin-right: -15px;
+}
+
+.back {
+    position: absolute;
+    top: 37px;
+    left: 30px;
+}
+.submit {
+    border-top: 1px solid #EAEAEA;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+.submit-text {
+    color: #666666;
+    font-size: 12px;
+    margin-top: 6px;
+}
+.submit-button {
+    text-align: right;
+}
+.content {
+    padding: 15px;
+}
+.tick-list {
+    padding-left: 0;
+}
+.tick-list li {
+    list-style: none;
+    padding-left: 30px;
+    background: url('https://getbunting.com/media/icons/tick.gif') 5px 2px no-repeat;
+    margin-bottom: 5px;
+    font-size: 18px;
+}
+.form-group {
+    text-align: left;
+}
+
+label {
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 5px;
+    font-weight: 700;
+    color: #666;
+}
+
+.form-group label:first-of-type:after {
+    content: ": ";
+}
+.form-group.required label:first-of-type:before {
+    content: "* ";
+    color: #CC0000;
+}
+label.error {
+    color: #CC0000;
+    display: block;
+    margin: -10px 0 10px;
+}
+.form-group label.error {
+    margin: 5px 0px 0px;
+}
+.form-group .hint {
+    color: #999999;
+    font-size: 11px;
+    margin-top: 3px;
+    display: block;
+}
+.btn {
+    background-color: #FFFFFF;
+    border: 1px solid #008DFD;
+    color: #008DFD;
+    border-radius: 3px;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.3;
+    padding: 12px 25px;
+    text-align: center;
+    text-decoration: none;
+    user-select: none;
+    margin-right: 5px;
+    text-transform: uppercase;
+    user-select: none;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover, .btn-primary:active:hover, .btn-primary:active, .btn-primary:focus,
+.btn-info:hover, .btn-info:active:hover, .btn-info:active, .btn-info:focus {
+    color: #008DFD;
+    background: #F1F1F1;;
+    background-color: #F1F1F1;
+    border-color: #008DFD;
+    box-shadow: none;
+}
+
+.btn-xl {
+    font-size: 22px;
+}
+
+.btn-last {
+    margin-top: 5px;
+    padding: 14px 30px;
+}
+
+.btn.large {
+    font-size: 20px;
+    line-height: 24px;
+    padding: 14px 30px !important;
+    font-weight: 400;
+}
+/* Logged in */
+div.logged-in {
+    margin-top: 30px;
+    text-align: center;
+    min-width: 250px;
+}
+.body-inner {
+    position: relative;
+    z-index: 1;
+}
+.body-inner .logo {
+    font-size: 0;
+    height: 60px;
+    background: url('/skin/adminhtml/default/default/bunting/images/logo.png') 40% 50% no-repeat;
+}
+.go-to-bunting {
+    margin-bottom: 15px;
+}
+
+.forgotPasswordForm {
+    display: none;
+    padding-top: 20px;
+}
+
+.forgotPasswordForm.active {
+    display: block;
+}
+
+.form-control {
+    font-weight: normal;
+}
+
+.field-error,
+.form-control.error {
+    background: #f2dede;
+    border-color: #ebccd1;
+    color: #a94442;
+}
+#loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.8);
+    z-index: 1000;
+    text-align: center;
+    display: none;
+}
+#loading:before {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 0;
+    vertical-align: middle;
+}
+
+.spinner {
+    display: inline-block;
+    width: 70px;
+    text-align: center;
+}
+
+.spinner > div {
+    width: 18px;
+    height: 18px;
+    background-color: #333;
+
+    border-radius: 100%;
+    display: inline-block;
+    -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+    animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+}
+
+.spinner .bounce1 {
+    -webkit-animation-delay: -0.32s;
+    animation-delay: -0.32s;
+    background-color: #F0776C;
+}
+
+.spinner .bounce2 {
+    -webkit-animation-delay: -0.16s;
+    animation-delay: -0.16s;
+    background-color: #62C2E4;
+}
+
+.spinner .bounce3 {
+    background-color: #FECF71;
+}
+
+@-webkit-keyframes sk-bouncedelay {
+    0%, 80%, 100% { -webkit-transform: scale(0) }
+    40% { -webkit-transform: scale(1.0) }
+}
+
+@keyframes sk-bouncedelay {
+    0%, 80%, 100% {
+        -webkit-transform: scale(0);
+        transform: scale(0);
+    } 40% {
+          -webkit-transform: scale(1.0);
+          transform: scale(1.0);
+      }
+}

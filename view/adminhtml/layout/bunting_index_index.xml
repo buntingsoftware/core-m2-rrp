@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="Bunting_Core::css/bootstrap.min.css" />
+        <css src="Bunting_Core::css/admin.css" />
+    </head>
+    <body>
+        <referenceContainer name="content">
+            <block name="bunting_core.install" class="Bunting\Core\Block\Install" before="-" template="Bunting_Core::install.phtml" />
+        </referenceContainer>
+    </body>
+</page>

@@ -1,0 +1,29 @@
+<link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;subset=latin" rel="stylesheet" />
+<div class="body-inner">
+    <div class="box-container logged-in">
+        <?php if ($message != ''): ?>
+            <h2 class="title">Bunting added <strong>Successfully</strong></h2>
+            <p><?php echo $message; ?></p>
+        <?php else: ?>
+            <h2 class="title">Sign in to <strong>Bunting</strong></h2>
+        <?php endif; ?>
+        <p>
+            Account address:<br><strong><?php echo $bunting_subdomain; ?>.bunting.com</strong>
+        </p>
+        <form action="https://<?php echo $bunting_subdomain; ?>.bunting.com/login" class="dotted go-to-bunting" target="_blank" method="post">
+            <input type="hidden" name="a" value="login">
+            <input type="hidden" name="timestamp" value="<?php echo $timestamp; ?>">
+            <input type="hidden" name="hash" value="<?php echo $hash; ?>">
+            <input type="hidden" name="password_api" value="<?php echo $password_api; ?>">
+            <input type="hidden" name="email_address" value="<?php echo $email_address; ?>">
+            <input type="hidden" name="plugin" value="magento2">
+            <?php if ($message != ''): ?>
+                <input type="hidden" name="redirect" value="/account?a=show_registration_complete">
+            <?php endif; ?>
+            <button type="submit" class="btn btn-info">
+                Login to your<br>Bunting Account
+            </button>
+        </form>
+        <a href="<?php echo $this->getUrl("bunting/index/unlink"); ?>" onclick="return confirm('Are you sure you want to unlink your Bunting account?');" class="unlink-bunting btn btn-default">Uninstall</a>
+    </div>
+</div>

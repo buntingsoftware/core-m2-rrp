@@ -1,0 +1,7 @@
+<?php if($bunting->getBuntingSubdomain() && $block->getCurrentCategory()): ?>
+    <!-- Bunting category script -->
+    <script type="text/javascript">
+        if (typeof window.$_Bunting=="undefined") window.$_Bunting={d:{}}; // Do not edit
+        $_Bunting.d.c = "<?php echo $block->getCurrentCategory(); ?>";     // Enter the category name as used by your system here
+    </script>
+<?php endif; ?>

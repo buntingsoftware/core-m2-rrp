@@ -1,0 +1,165 @@
+<link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;subset=latin" rel="stylesheet" />
+<script>
+    window.onload = function() {
+        loadAll();
+    };
+
+    function loadAll() {
+        if (window.jQuery) {
+            loadJS('<?php echo $block->getViewFileUrl('Bunting_Core::js/validate.js'); ?>', function() {
+                loadJS('<?php echo $block->getViewFileUrl('Bunting_Core::js/bootstrap.min.js'); ?>', function() {
+                    loadJS('<?php echo $block->getViewFileUrl('Bunting_Core::js/admin.js'); ?>');
+                });
+            });
+        } else {
+            setTimeout(function() {
+                loadAll();
+            }, 500);
+        }
+    }
+
+    function loadJS(url, callback) {
+        var tag = document.createElement("script");
+        tag.src = url;
+        document.getElementsByTagName("head")[0].appendChild(tag);
+        if (typeof callback === "function") {
+            setTimeout(function() {
+                callback();
+            }, 200);
+        }
+    }
+    window.bunting_login_url = '<?php echo $block->getUrl('bunting/index/login');?>';
+    window.bunting_register_url = '<?php echo $block->getUrl('bunting/index/register');?>';
+    window.bunting_domain_exists_url = '<?php echo $block->getUrl('bunting/index/exists');?>';
+    window.bunting_success_url = '<?php echo $this->getUrl('bunting/index/index'); ?>';
+</script>
+<div id="loading">
+    <div class="spinner">
+        <div class="bounce1"></div>
+        <div class="bounce2"></div>
+        <div class="bounce3"></div>
+    </div>
+</div>
+<div class="body-inner">
+    <div class="box-container" id="loginForm">
+        <div class="title-logo"><img src="https://bunting.com/media/logo.svg"></div>
+        <p style="display: none" class="message"></p>
+        <div class="row">
+            <div class="underlined">
+                <h4>New to Bunting?</h4>
+                <a href="#planChooseForm" class="btn btn-primary btn-lg" id="choosePlanButton">Create Account</a>
+            </div>
+            <div class="login underlined">
+                <h2>Already have a Bunting Account?</h2>
+                <form id="actualLoginForm">
+                    <?php echo $block->getBlockHtml('formkey'); ?>
+                    <div class="form-group required">
+                        <label for="verify_bunting_subdomain">Bunting account subdomain</label>
+                        <input type="text" class="form-control" id="verify_bunting_subdomain" name="verify_bunting_subdomain" required>
+                    </div>
+                    <div class="form-group required">
+                        <label for="verify_email_address">Email address</label>
+                        <input type="email" class="form-control" id="verify_email_address" name="verify_email_address" placeholder="Email address" required>
+                    </div>
+                    <div class="form-group required">
+                        <label for="verify_password">Password</label>
+                        <input type="password" class="form-control" id="verify_password" name="verify_password" required>
+                    </div>
+                    <button type="submit" class="btn btn-info">Login</button>
+                </form>
+            </div>
+            <div>
+                Help: <a class="forgotPasswordTrigger" href="https://bunting.com/contact" target="_blank">I've lost my password</a>
+                <form class="forgotPasswordForm">
+                    <div class="form-group required">
+                        <label for="verify_bunting_subdomain">Bunting account subdomain</label>
+                        <input type="text" class="form-control" id="bunting_forgot_subdomain" name="bunting_forgot_subdomain" required="">
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-large btn-last">Reset</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="box-container wide" id="registerForm" style="display:none;">
+        <a class="back" href="#back">Back</a>
+        <h2 class="title">Create Your <strong>Free Trial Account</strong></h2>
+        <h4>You're moments away from personalising your website</h4>
+        <form id="actualRegisterForm">
+            <?php echo $block->getBlockHtml('formkey'); ?>
+            <fieldset>
+                <h3>Your Bunting Account</h3>
+                <div class="form-group required">
+                    <label for="company_name">Company Name</label>
+                    <input type="text" class="form-control" id="company_name" name="company_name" value="<?php echo $shop_name; ?>" required>
+                </div>
+                <div class="form-group required">
+                    <label for="register_bunting_subdomain">Choose your Bunting account's web address</label>
+                    <div class="input-group">
+                        <div class="input-group-addon">https://</div>
+                        <input type="text" class="form-control" id="register_bunting_subdomain" name="register_bunting_subdomain" value="<?php echo $potential_subdomain; ?>" required>
+                        <div class="input-group-addon">.bunting.com</div>
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset>
+                <h3>Your Login Details</h3>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group required">
+                            <label for="forename">Forename</label>
+                            <input type="text" class="form-control" id="forename" name="forename" required>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group required">
+                            <label for="surname">Surname</label>
+                            <input type="text" class="form-control" id="surname" name="surname" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group required">
+                    <label for="register_email_address">Email Address</label>
+                    <input type="email" class="form-control" id="register_email_address" name="register_email_address" placeholder="Email address" required>
+                    <span class="hint">(Kept safe, never given to others)</span>
+                </div>
+                <div class="form-group required">
+                    <label for="telephone_number">Phone</label>
+                    <input type="text" class="form-control" id="telephone_number" name="telephone_number" value="" required>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group required">
+                            <label for="register_password">Password</label>
+                            <input type="password" class="form-control" id="register_password" name="register_password" required>
+                            <span class="hint">(We'll encrypt this for security)</span>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group required">
+                            <label for="password_confirmation">Confirm password</label>
+                            <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <p>
+                        Do you have a <a id="promoCodeButton" role="button" data-toggle="collapse" href="#promo-code" aria-expanded="false" aria-controls="promo-code">Promo Code</a>?
+                    </p>
+                    <div class="collapse" id="promo-code">
+                        <input type="text" class="form-control" id="promotional_code" name="promotional_code" placeholder="Promo code (optional)">
+                    </div>
+                </div>
+                <div class="submit">
+                    <div class="row">
+                        <div class="col-sm-6 submit-text">
+                            <span id="premium-terms">By clicking the button you agree to Bunting's <a href="http://knowledgebase.getbunting.com/bunting-terms-of-service/" target="_blank">Terms of Business</a>.</span>
+                        </div>
+                        <div class="col-sm-6 submit-button">
+                            <button type="submit" class="btn btn-info btn-xl">Get started</button>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div> <!-- /container -->

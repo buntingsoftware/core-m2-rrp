@@ -1,0 +1,12 @@
+hello there
+<?php if($bunting->getBuntingSubdomain()): ?>
+
+<!-- Bunting asynchronous tracking code-->
+<script type="text/javascript">
+    if (typeof window.$_Bunting === 'undefined') window.$_Bunting={d:{}};
+    $_Bunting.d.lc = '<?php echo $store->getLocaleCode(); ?>';
+    $_Bunting.d.cc = '<?php echo $store->getCurrentCurrency()->getCode(); ?>';
+
+    (function(){if(typeof window.$_Bunting=="undefined")window.$_Bunting={d:{}};$_Bunting.src=("https:"==document.location.protocol?"https://":"http://")+"<?php echo $bunting->getBuntingSubdomain(); ?>.<?php echo is_numeric($bunting->getServerRegionSubdomainId()) ? $bunting->getServerRegionSubdomainId() . '.' : ''; ?>bunting.com/call.js?wmID=<?php echo $bunting->getBuntingWebsiteMonitorId(); ?>";$_Bunting.s=document.createElement("script");$_Bunting.s.type="text/javascript";$_Bunting.s.async=true;$_Bunting.s.defer=true;$_Bunting.s.charset="UTF-8";$_Bunting.s.src=$_Bunting.src;document.getElementsByTagName("head")[0].appendChild($_Bunting.s)})()
+</script>
+<?php endif; ?>

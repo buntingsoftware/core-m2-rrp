@@ -1,0 +1,40 @@
+<?php if ($cart_quote && $cart_quote->getItemsCount() && $bunting->getBuntingSubdomain()): ?>
+
+<!-- Bunting shopping cart script - place ABOVE Generic Head Code -->
+<script type="text/javascript">
+    if (typeof $_Bunting=="undefined") var $_Bunting={d:{}}; // Do not edit
+    $_Bunting.d.cp = new Array(); // Do not edit
+
+    var shipping = <?php echo $cart_quote->getShippingAddress()->getShippingAmount(); ?>;
+    shipping = shipping.toFixed(2);
+
+    $_Bunting.d.cdc = shipping.toString();  // Recommended. Delivery cost of the cart (number)
+
+    // Repeat the following code for each product in cart - start here
+
+    <?php foreach ($cart_quote->getAllVisibleItems() as $item): ?>
+    <?php $product = $item->getProduct(); ?>
+    var price = "<?php echo $this->helper('Magento\Checkout\Helper\Data')->getPriceInclTax($item);  ?>";
+    price = parseFloat(checkDecimal(price)).toFixed(2);
+
+    
+    
+    $_Bunting.d.cp.push([
+        "<?php echo $block->getProductIdOrParent($product); ?>",
+        price.toString(),
+        "<?php echo $item->getQty(); ?>"
+    ]);
+    <?php endforeach; ?>
+    // End cart product repetition here
+
+    function checkDecimal(price) {
+        var decimal_mark = price.charAt(price.length-3);
+        if (decimal_mark == ',') {
+            price = price.replace(",", "*");
+            price = price.replace(".", "");
+            price = price.replace("*", ".");
+        }
+        return price;
+    }
+</script>
+<?php endif; ?>

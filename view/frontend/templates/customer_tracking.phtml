@@ -1,0 +1,16 @@
+<?php if ($block->isLoggedIn() && $bunting->getBuntingSubdomain()): ?>
+
+<!-- Additional visitor information - place ABOVE Generic Head Code -->
+<script type="text/javascript">
+    if (typeof window.$_Bunting=='undefined') window.$_Bunting={d:{}}; // Do not edit
+
+    // 1) Unique account number / code when a visitor is logged in to their account on your site
+    $_Bunting.d.uac = "<?php echo $block->getCustomer()->getId(); ?>";
+
+    // 2) Known visitor information
+    $_Bunting.d.fn = "<?php echo $block->getCustomer()->getFirstname(); ?>"; // The visitor's forename, if known
+    $_Bunting.d.sn = "<?php echo $block->getCustomer()->getLastname(); ?>"; // The visitor's surname, if known
+    $_Bunting.d.ea = "<?php echo $block->getCustomer()->getEmail(); ?>"; // The visitor's email address, if known
+    $_Bunting.d.g = "<?php echo $block->getGender(); ?>";  // The visitor's gender. Enter 'male' or 'female' if known, or leave empty
+</script>
+<?php endif; ?>

@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Bunting_Core::menu_title"
+             title="Bunting"
+             module="Bunting_Core"
+             sortOrder="9999"
+             resource="Magento_Backend::content"
+             parent="Magento_Backend::marketing"
+        />
+        <add id="Bunting_Core::menu_item"
+             title="Manage"
+             module="Bunting_Core"
+             sortOrder="9999"
+             resource="Bunting_Core::index"
+             parent="Bunting_Core::menu_title"
+             action="bunting/index/index"
+        />
+    </menu>
+</config>

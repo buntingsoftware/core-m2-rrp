@@ -1,0 +1,8 @@
+<?php if($bunting->getBuntingSubdomain() && $block->getProduct()): ?>
+
+<!-- Bunting product ID script - place ABOVE Generic Head Code -->
+<script type="text/javascript">
+    if (typeof window.$_Bunting=="undefined") window.$_Bunting={d:{}}; // Do not edit
+    $_Bunting.d.vp_upc = "<?php echo $block->getProductIdOrParent(); ?>";     // Enter unique product ID used by your system here
+</script>
+<?php endif; ?>
