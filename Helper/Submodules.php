@@ -35,6 +35,11 @@ class Submodules extends \Magento\Framework\App\Helper\AbstractHelper
     public function addSubmodule($id, $submodule) {
         $buntingModules = $this->getRegisteredBuntingSubmodules();
         $buntingModules[$id] = $submodule;
+
+        if (count($buntingModules) > 1) {
+            $this->registry->unregister('bunting_submodules');
+        }
+
         $this->registry->register('bunting_submodules', $buntingModules);
     }
 }
