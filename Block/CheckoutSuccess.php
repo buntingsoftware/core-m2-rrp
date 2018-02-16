@@ -11,6 +11,7 @@ class CheckoutSuccess extends \Magento\Checkout\Block\Success
         \Magento\Framework\View\Element\Template\Context $context,
         \Magento\Sales\Model\OrderFactory $orderFactory,
         \Magento\Sales\Api\OrderRepositoryInterface $orderRepository,
+        \Magento\Checkout\Model\Session $checkoutSession,
         CollectionFactory $buntingCollectionFactory,
         Configurable $configurable,
         array $data = []
@@ -19,7 +20,7 @@ class CheckoutSuccess extends \Magento\Checkout\Block\Success
         $this->_orderRepository = $orderRepository;
         $bunting = $buntingCollectionFactory->create()->getFirstItem();
         $this->assign('bunting',$bunting);
-        $order = $this->_orderRepository->get($this->getRealOrderId());
+        $order = $this->_orderRepository->get($checkoutSession->getLastOrderId());
         $this->assign('order', $order);
         $this->_configurable = $configurable;
     }
