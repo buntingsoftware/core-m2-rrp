@@ -75,10 +75,9 @@ class Index extends \Magento\Framework\App\Action\Action
         $lastPage = floor($this->getEnabledProductCollection()->getSize() / $limit);
 
         // Internal pagination to prevent OOM errors
-        $internalLimit = min(500, $limit);
-        $internalPage = ($page * ceil($limit / $internalLimit)) + 1;
-        $internalLastPage = ($internalLimit == $limit ? $internalPage : $page * (ceil($limit / $internalLimit))) + 1;
-        $internalLastPage = $internalPage == $internalLastPage ? $internalPage + 1 : $internalLastPage;
+        $internalLimit = min(200, $limit);
+        $internalPage = $page * ceil($limit / $internalLimit) + 1;
+        $internalLastPage = (1 + $page) * (ceil($limit / $internalLimit));
 
         // Some pre-caching to improve performance
         $gtinAttribute = $this->getGtinAttributeCode();
@@ -90,7 +89,7 @@ class Index extends \Magento\Framework\App\Action\Action
 
         $this->createXmlMetaOpen($bunting->getBuntingSubdomain(), $bunting->getBuntingWebsiteMonitorId(), $bunting->getServerRegionSubdomainId(), $page != $lastPage ? 'no' : 'yes');
 
-        while ($internalPage < $internalLastPage) {
+        while ($internalPage <= $internalLastPage) {
             foreach ($this->getEnabledProducts($internalLimit, $internalPage) as $product) {
                 $store = $mediaUrl = null;
                 $cats = $product->getCategoryIds();
@@ -100,11 +99,17 @@ class Index extends \Magento\Framework\App\Action\Action
                 $currencies = $names = [];
                 $price = $product->getPriceInfo()->getPrice('regular_price')->getAmount()->getValue();
                 $specialPrice = $product->getPriceInfo()->getPrice('special_price')->getAmount()->getValue();
-                $stockItem = $this->_stockItemRepository->get($product->getId());
                 $isProductConfigurable = $product->getTypeId() == \Magento\ConfigurableProduct\Model\Product\Type\Configurable::TYPE_CODE;
-                $stockQty = $stockItem->getIsInStock() ? $isProductConfigurable ? $this->getConfigurableStock($product, $stockItem) : (int)$stockItem->getQty() : 'n';
                 $productIsChild = !$isProductConfigurable && !empty($this->_configurable->getParentIdsByChild($product->getId()));
                 $isMissingData = $product->getImage() == 'no_selection' || !$categoryString;
+
+                try {
+                    // Resolve an error where some indexed products don't have a valid stock item attached to them, also resolves issues for stockless products (gift cards)
+                    $stockItem = $this->_stockItemRepository->get($product->getId());
+                    $stockQty = $stockItem->getIsInStock() ? $isProductConfigurable ? $this->getConfigurableStock($product, $stockItem) : (int)$stockItem->getQty() : 'n';
+                } catch(\Exception $e) {
+                    $stockQty = "y";
+                }
 
                 if ($productIsChild || $isMissingData) {
                     continue;
