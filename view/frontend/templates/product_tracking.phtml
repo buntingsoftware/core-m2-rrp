@@ -5,10 +5,10 @@
     <script type="text/javascript">
         if (typeof window.$_Bunting=="undefined") window.$_Bunting={d:{}};
         $_Bunting.d.vp_upc = "<?php echo $block->getProductIdOrParent(); ?>";
-        $_Bunting.d.ns_<?php echo $block->getProductLanguageCode(); ?> = "<?php echo $block->getProductName(); ?>";
-        $_Bunting.d.ps_<?php echo $block->getProductCurrencyCode(); ?> = "<?php echo $block->getProductDisplayPrice(); ?>";
-        $_Bunting.d.s = <?php echo is_numeric($stock) ? $stock : '"' . $stock . '"'; ?>;
-        <?php if ($imageUrl) { ?>$_Bunting.d.iu = "<?php echo $imageUrl; ?>";<?php } ?>
-        <?php if ($brand) { ?>$_Bunting.d.b = "<?php echo $brand; ?>";<?php } ?>
+        $_Bunting.d.vp_ns_<?php echo $block->getProductLanguageCode(); ?> = "<?php echo $block->getProductName(); ?>";
+        $_Bunting.d.vp_ps_<?php echo $block->getProductCurrencyCode(); ?> = "<?php echo $block->getProductDisplayPrice(); ?>";
+        $_Bunting.d.vp_s = <?php echo is_numeric($stock) ? $stock : '"' . $stock . '"'; ?>;
+        <?php if ($imageUrl) { ?>$_Bunting.d.vp_iu = "<?php echo $imageUrl; ?>";<?php } ?>
+        <?php if ($brand) { ?>$_Bunting.d.vp_b = "<?php echo $brand; ?>";<?php } ?>
     </script>
 <?php }
