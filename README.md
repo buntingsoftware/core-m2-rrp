@@ -1,16 +1,11 @@
 ## Bunting Core (Magento 2)
 
-This module provides most of the functionality needed to use Bunting features within your Magento 2 store.
+This is if you have a custom attribute called `product_rrp` ONLY.
 
-By itself, this module won't do anything - you **must** install one (or more) of the following submodules to access the full functionality of the Bunting platform:
+Installation instructions:
 
-* [Bunting personalisation](https://bitbucket.org/bunting-software/bunting-magento-2-personalisation)
-* More coming _**very**_ soon 
-
-## Installation
-
-This module uses composer for installation, and does not need to be directly required as it is a dependency of all the child modules.
-
-## Support
+- Go to your linux box that has your m2 installation on and remove/uninstall any previous Bunting packages.
+- Run `composer install bunting/personalisation-m2-rrp`
+- Once done, flush your m2 caches then visit System > Web installation > Modules > Enable the Bunting plugins.   
 
 Bunting Core (and all submodules) officially support PHP 5.5+ and PHP 7.x, with support for Magento version 2.0+
