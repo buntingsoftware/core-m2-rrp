@@ -1,5 +1,5 @@
 {
-  "name": "bunting/core-m2",
+  "name": "bunting/core-m2-rrp",
   "description": "Bunting Core provides libraries necessary for the suite of Bunting tools to function",
   "require": {
     "php": ">=5.5.0"
