@@ -51,7 +51,7 @@ class Product extends AbstractView
     public function getProductDisplayPrice() {
         $product = $this->getProduct();
         $price = $product->getPriceInfo()->getPrice('regular_price')->getAmount()->getValue();
-        $specialPrice = $product->getResource()->getAttribute('product_rrp')->getFrontend()->getValue($product);
+        $specialPrice = $product->getPriceInfo()->getPrice('special_price')->getAmount()->getValue();
         return number_format($specialPrice ? $specialPrice : $price, 2);
     }
 

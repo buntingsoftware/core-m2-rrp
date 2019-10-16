@@ -164,6 +164,7 @@ class Index extends \Magento\Framework\App\Action\Action
                 $this->createXmlTag('c', $categoryString, 2, (bool)$categoryString);
                 $this->createXmlTag('rt', $rating / 20, 2, (bool)$rating);
                 $this->createXmlTag('u', $product->getProductUrl(), 2);
+                $this->createXmlTag('cv1', $product->getCustomAttribute('product_rrp')->getValue();, 2);
 
                 $secondImage = $this->getSecondImageUrl($product);
                 $this->createXmlTag('i2u', $secondImage, 2, $secondImage);
