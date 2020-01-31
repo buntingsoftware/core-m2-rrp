@@ -159,7 +159,7 @@ class Index extends \Magento\Framework\App\Action\Action
                 $this->createXmlTag('upc', $product->getId(), 2);
                 $this->createXmlTag('s', $stockQty, 2);
                 $this->createXmlTag('iu', "{$mediaUrl}catalog/product{$product->getImage()}", 2, ($product->getImage() != 'no_selection'));
-                $this->createXmlTag('b', $product->getAttributeText('manufacturer'), 2, (bool)$product->getAttributeText('manufacturer'));
+                $this->createXmlTag('b', $product->getAttributeText('brand'), 2, (bool)$product->getAttributeText('brand'));
                 $this->createXmlTag('gtin', $product->getData($gtinAttribute), 2, ($gtinAttribute && $product->getData($gtinAttribute)));
                 $this->createXmlTag('c', $categoryString, 2, (bool)$categoryString);
                 $this->createXmlTag('rt', $rating / 20, 2, (bool)$rating);
